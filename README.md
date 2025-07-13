@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GET SOME PRAISE — *Because enough with the roasts!*
 
-## Getting Started
+A small web app to spread positivity for developers.  
+Enter GitHub username and get an AI-generated praise highlighting their skills and contributions.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, Server Components, SSR)
+- **API:** [GitHub REST API](https://docs.github.com/en/rest) (for user data)
+- **AI:** [Gemini API](https://ai.google.dev/) (for generating praise and titles)
+- **Hosting:** [Vercel](https://vercel.com/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How It Works
 
-## Learn More
+### Home Page
+- User enters a **GitHub username** in the input.
+- The app **navigates to `/profile/[username]`** via a dynamic route.
+- The username is handled **server-side** for proper **SSR**.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Profile Page
+- On load, the profile page **fetches all data server-side**:
+  - Calls `getUser` API to get GitHub user details.
+  - Passes the data as a prompt to Gemini.
+  - Gemini generates:
+    - ✅ A short **praise**
+    - ✅ A fitting **title** for the developer.
+- The user sees:
+  - Avatar, bio, repos, followers, following.
+  - AI-generated praise & title.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## API: `/api/getUser`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Receives** the GitHub username.
+2. **Calls** the GitHub API to get:
+   - Username
+   - Bio
+   - Repo count
+   - Followers / Following
+   - Public stars count
+3. **Passes** the context to Gemini with a prompt
+4. **Returns** all data back to the profile page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Why SSR?
+- No duplicate fetching on the client.
+- Fully SEO-friendly.
+- Safe to refresh the page — praise is always there.
+- Gemini secrets stay **secure** on the server.
