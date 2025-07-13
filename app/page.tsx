@@ -13,7 +13,7 @@ export default function Home() {
 
   const router = useRouter()
 
-  const handleKeyPress = useCallback((e: any) => {
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
     if (e.key === "/") {
       e.preventDefault()
       inputRef.current?.focus()
@@ -36,8 +36,12 @@ export default function Home() {
       
       router.push(`/profile/${name}`)
       setError("")
-    } catch (error: any) {
-      setError(error.error)
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError("Something went wrong")
+      }
     }
   }
 
