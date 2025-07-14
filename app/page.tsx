@@ -51,8 +51,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    isChecked ? setMode("praise") : setMode("roast")
-  }, [isChecked])
+    setMode(isChecked ? "praise" : "roast");
+  }, [isChecked]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
