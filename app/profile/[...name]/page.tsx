@@ -12,7 +12,7 @@ export default async function Profile({
     const name = param.name[0]
     const mode = param.name[1]
     
-    const res = await fetch("http://localhost:3000/api/getUser", {
+    const res = await fetch("https://git-praise.vercel.app/api/getUser", {
         method: "POST",
         body: JSON.stringify({ name, mode }),
     });
