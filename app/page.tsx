@@ -78,18 +78,18 @@ export default function Home() {
           }`} />
 
           <div className="absolute top-4 right-4">
-            <div className="flex gap-2">
-              <p>Praise</p>
-              <span><Switcher isChecked={isChecked} setIsChecked={setIsChecked} /></span>
-              <p>Roast</p>
+            <div className="flex items-center gap-4 p-2 shadow-sm">
+              {/* <span className="text-sm text-zinc-400">mode: </span> */}
+              <Switcher isChecked={isChecked} setIsChecked={setIsChecked} />
             </div>
+
           </div>
 
           <div className="container relative mx-auto px-4 text-center">
-            <h1 className={`text-7xl font-semibold mb-4 ${isPraise ? "text-[#c0f7ff]" : "text-[#ffd7d6]"}`}>
+            <h1 className={`md:text-7xl text-5xl font-semibold mb-4 ${isPraise ? "text-[#c0f7ff]" : "text-[#ffd7d6]"}`}>
               {isPraise ? "GIT PRAISE" : "GIT ROAST"}
             </h1>
-            <p className={`text-xl mb-8 ${isPraise ? "text-[#80b6ef]" : "text-[#ea9797]"}`}>
+            <p className={`md:text-xl text-lg mb-8 ${isPraise ? "text-[#80b6ef]" : "text-[#ea9797]"}`}>
               {isPraise ? "Too much roast, now it's time for some praise" : "you asked for it"}
             </p>
             <div className="mt-8 md:mt-12 flex justify-center">

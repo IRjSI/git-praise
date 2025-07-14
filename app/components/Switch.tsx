@@ -1,35 +1,52 @@
-import React, { useState } from 'react'
-
-const Switcher = ({ isChecked, setIsChecked }: any) => {
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked)
-  }
-
+export default function Switcher({ isChecked, setIsChecked }: any) {
   return (
-    <>
-      <label className='flex cursor-pointer select-none items-center'>
-        <div className='relative'>
-          <input
-            type='checkbox'
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-            className='sr-only'
-          />
-          <div
-            className={`box block h-8 w-14 rounded-full ${
-              !isChecked ? 'bg-red-500' : 'bg-blue-500'
-            }`}
-          ></div>
-          <div
-            className={`absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition ${
-              !isChecked ? 'translate-x-full' : ''
-            }`}
-          ></div>
-        </div>
-      </label>
-    </>
-  )
-}
+    <button
+      onClick={() => setIsChecked(!isChecked)}
+      className={`relative w-14 h-8 flex items-center rounded-full transition-colors duration-300 cursor-pointer`}
+    >
+      <span
+        className={`absolute left-1 flex items-center justify-center w-6 h-6 rounded-full shadow transform transition-transform duration-300`}
+      >
+        {!isChecked ? 
+          <div className="w-8 h-8 md:w-12 md:h-12 flex-shrink-0">
 
-export default Switcher
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M22.483 5.891a4.971 4.971 0 0 0-.414-4.775.315.315 0 0 0-.554.145 4.432 4.432 0 0 1-.921 1.826A7.626 7.626 0 0 0 15.344 1H8.656a7.627 7.627 0 0 0-5.308 2.142 4.5 4.5 0 0 1-.965-1.881.315.315 0 0 0-.554-.145A4.988 4.988 0 0 0 1.461 6l.007.014A7.664 7.664 0 0 0 1 8.656v6.688A7.656 7.656 0 0 0 8.656 23h6.688A7.656 7.656 0 0 0 23 15.344V8.656a7.625 7.625 0 0 0-.517-2.765z" fill="#e7253e"/>
+              <path d="M23 13.938a14.69 14.69 0 0 1-12.406 6.531c-5.542 0-6.563-1-9.142-2.529A7.66 7.66 0 0 0 8.656 23h6.688A7.656 7.656 0 0 0 23 15.344z" fill="#b51f36"/>
+              <path d="M9.565 8.513A16.121 16.121 0 0 1 5.63 6.328a.52.52 0 0 0-.832.4c-.048 1.583.151 4.483 2.258 4.483A2.6 2.6 0 0 0 9.9 9.1a.517.517 0 0 0-.335-.587zM19.2 6.731a.521.521 0 0 0-.832-.4 16.121 16.121 0 0 1-3.935 2.185.517.517 0 0 0-.333.584 2.6 2.6 0 0 0 2.84 2.11c2.111.004 2.31-2.896 2.26-4.479zM14 13.937a.318.318 0 0 1-.313-.326 2.105 2.105 0 0 0-.5-1.331A1.6 1.6 0 0 0 12 11.847a1.6 1.6 0 0 0-1.187.43 2.092 2.092 0 0 0-.5 1.335.32.32 0 0 1-.64.012 2.715 2.715 0 0 1 .679-1.792A2.211 2.211 0 0 1 12 11.207a2.211 2.211 0 0 1 1.647.625 2.721 2.721 0 0 1 .679 1.792.321.321 0 0 1-.326.313z" fill="#90192d"/>
+            </svg>
+
+          </div>
+        : 
+          <div className="w-8 h-8 md:w-12 md:h-12 flex-shrink-0">
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="">
+              <rect x="1" y="1" width="22" height="22" rx="7.656" fill="#80b6ef"/>
+              <path
+                d="M8.907 9.844a.182.182 0 0 1-.331.1 2.016 2.016 0 0 0-.569-.567 1.731 1.731 0 0 0-1.915 0 2.016 2.016 0 0 0-.571.569.182.182 0 0 1-.331-.1 1.632 1.632 0 0 1 .346-1.023 1.927 1.927 0 0 1 3.026 0 1.64 1.64 0 0 1 .345 1.021zM18.81 9.844a.182.182 0 0 1-.331.1 2.026 2.026 0 0 0-.568-.567 1.732 1.732 0 0 0-1.916 0 2.016 2.016 0 0 0-.571.569.182.182 0 0 1-.331-.1 1.632 1.632 0 0 1 .346-1.023 1.927 1.927 0 0 1 3.026 0 1.64 1.64 0 0 1 .345 1.021z"
+                fill="#272d4d"
+                />
+              <path
+                d="M23 13.938a14.69 14.69 0 0 1-12.406 6.531c-5.542 0-6.563-1-9.142-2.529A7.66 7.66 0 0 0 8.656 23h6.688A7.656 7.656 0 0 0 23 15.344z"
+                fill="#328ae6"
+                />
+              <path
+                d="M15.633 12.993A7.322 7.322 0 0 1 12 14.044a7.322 7.322 0 0 1-3.633-1.051c-.363-.241-.478-.215-.478-.129 0 1.056 2.055 1.708 4.111 1.708s4.111-.652 4.111-1.708c0-.086-.111-.112-.478.129z"
+                fill="#272d4d"
+                />
+              <path
+                d="M13.136 15.183a2.262 2.262 0 0 1-2.272 0c-.268-.2-.252.381.341.536a2.786 2.786 0 0 0 .8.172 2.786 2.786 0 0 0 .8-.172c.583-.155.595-.739.331-.536z"
+                fill="#328ae6"
+              />
+              <path
+                d="m19.641 2.26-.118-.018a7.84 7.84 0 0 1 .85.644c2.029.388 2.133.772 2.133.776s-.127.485-2.94.913A52.888 52.888 0 0 1 12 5.052a52.888 52.888 0 0 1-7.566-.477c-2.813-.428-2.94-.908-2.94-.913s.1-.388 2.133-.776a7.84 7.84 0 0 1 .85-.644l-.118.018C1.348 2.718 1 3.28 1 3.662s.348.943 3.359 1.4A53.5 53.5 0 0 0 12 5.546a53.5 53.5 0 0 0 7.641-.482C22.652 4.605 23 4.044 23 3.662s-.348-.944-3.359-1.402z"
+                fill="#a3f7ff"
+              />
+            </svg>
+            
+          </div>
+        }
+      </span>
+    </button>
+  );
+}
