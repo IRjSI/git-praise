@@ -1,4 +1,4 @@
-export default function Switcher({ isChecked, setIsChecked }: any) {
+export default function Switcher({ isChecked, setIsChecked }: { isChecked: boolean, setIsChecked: (isChecked: boolean) => void }) {
   return (
     <button
       onClick={() => setIsChecked(!isChecked)}
