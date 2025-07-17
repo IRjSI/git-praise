@@ -9,30 +9,34 @@ const mr = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Git Praise — Praise GitHub Profiles",
+  title: "Git Praise — Because too much roast",
   description:
-    "Git Praise: celebrate and highlight remarkable GitHub profiles. Give genuine recognition to developers for their contributions, projects, and impact.",
+    "Git Praise: Because too much roast now. Celebrate and highlight remarkable GitHub profiles. Give genuine recognition to developers for their contributions, projects, and impact.",
   metadataBase: new URL("https://git-praise.vercel.app"),
   keywords: [
     "Git Praise",
+    "Github Praise",
     "GitHub profiles",
+    "roast github",
+    "git roast",
+    "github roast",
     "developer recognition",
     "praise developers",
     "GitHub showcase",
   ],
   openGraph: {
-    title: "Git Praise — Highlight GitHub Profiles",
+    title: "Git Praise — Because too much roast",
     description:
-      "Celebrate and highlight remarkable GitHub profiles. Recognize developers for their projects and contributions.",
+      "Git Praise: Because too much roast now. Celebrate and highlight remarkable GitHub profiles. Give genuine recognition to developers for their contributions, projects, and impact.",
     url: "https://git-praise.vercel.app",
     siteName: "Git Praise",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Git Praise — Highlight GitHub Profiles",
+    title: "Git Praise — Because too much roast",
     description:
-      "Celebrate and highlight remarkable GitHub profiles. Recognize developers for their projects and contributions.",
+      "Git Praise: Because too much roast now. Celebrate and highlight remarkable GitHub profiles. Give genuine recognition to developers for their contributions, projects, and impact.",
     creator: "@_RjS_0",
   },
   authors: [{ name: "RjS", url: "https://git-praise.vercel.app" }],
